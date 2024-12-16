@@ -1,0 +1,42 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2024-05-24 15:15:58.518951",
+ "disable_prepared_report": 0,
+ "disabled": 1,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "modified": "2024-10-11 10:52:25.675412",
+ "modified_by": "Administrator",
+ "module": "Impala",
+ "name": "Ledger Summary Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "GL Entry",
+ "report_name": "Ledger Summary Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Auditor"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Sales Manager"
+  }
+ ]
+}

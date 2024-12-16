@@ -1,0 +1,31 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2022-09-19 11:40:17.679276",
+ "director_report": 0,
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "modified": "2024-08-07 12:56:35.202677",
+ "modified_by": "Administrator",
+ "module": "Impala",
+ "name": "Accounts Receivable Impala",
+ "owner": "Administrator",
+ "prepared_report": 1,
+ "ref_doctype": "Sales Invoice",
+ "report_name": "Accounts Receivable Impala",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2024-12-03 11:19:21.351207",
+ "disable_prepared_report": 1,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "modified": "2024-12-03 13:20:35.000195",
+ "modified_by": "Administrator",
+ "module": "Impala",
+ "name": "Party Balance With Account Currency",
+ "owner": "Administrator",
+ "prepared_report": 1,
+ "ref_doctype": "GL Entry",
+ "report_name": "Party Balance With Account Currency",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Auditor"
+  },
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "External Auditor"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "Short Rights"
+  }
+ ]
+}

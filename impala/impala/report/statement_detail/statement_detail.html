@@ -1,0 +1,280 @@
+<!-- <p class="text-muted" style="text-align:left;float:left;">Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_today()) %} </p> -->
+<div style="margin-top:20px">
+
+    <div>{%= (data[data.length - 1].headers) %} </div>
+
+
+    <table class="table table-sm small "
+        style="width: 100%; padding: 0px !important; font-weight:900;  padding:0px !important">
+        <tr>
+            <td style="width: 60%" class="text-left">
+
+
+                <div> {%= __("Customer ") %} :
+                    {%= filters.party_name %}
+                </div>
+
+                {% if (data[data.length - 1].customer_personal_detial["email_id"]) %}
+
+                <div> {%= __("Email ID ") %} :
+                    {%= (data[data.length - 1].customer_personal_detial["email_id"]) %}
+                </div>
+
+                {% endif %}
+                {% if (data[data.length - 1].customer_personal_detial["phone"]) %}
+
+                <div> {%= __("Phone ") %} :
+                    {%= (data[data.length - 1].customer_personal_detial["phone"]) %}
+
+                </div>
+                {% endif %}
+            </td>
+            <td style="width: 40%" class="text-right">
+
+                <div> {%= __("Currency ") %} :
+                    {%= (data[data.length - 1].customer_personal_detial["currency"]) %}
+
+                </div>
+                <div> {%= __("Due Balance ") %} :
+
+                    {%= (data[data.length - 1].customer_personal_detial["due_balance"]) %}
+
+                </div>
+                <div>
+
+
+                    {%= frappe.datetime.str_to_user(filters.from_date) %}--
+                    {%= frappe.datetime.str_to_user(filters.to_date) %}
+
+                </div>
+
+
+
+
+            </td>
+
+        </tr>
+
+    </table>
+
+
+
+
+    <table class=" table table-sm small m-0 p-0  " width="100%" style="padding: 0px !important; margin:0px !important"
+        cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th style="width:14%">{%= __("Date") %}</th>
+                <th style="width:10%">{%= __("No") %}</th>
+                <th style="width:15%" class="small">{%= __("Description") %}</th>
+                <th style="width:20%" class="small">{%= __("Allocation") %}</th>
+                <th style="width:8%" class="small">{%= __("Ref No") %}</th>
+                <th style="width:11%" class="text-right small ">{%= __("Debit") %}</th>
+                <th style="width:11%" class="text-right small ">{%= __("Credit") %}</th>
+                <th style="width:11%" class="text-right small ">{%= __("Balance") %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for(var i=0, l=data.length; i<l-2; i++) { %} <tr>
+                {% if(data[i]) { %}
+                <td>
+                    {%= frappe.datetime.str_to_user(data[i].posting_date) %}
+
+
+
+                </td>
+                <td>{%= (data[i].voucher_no) %}</td>
+
+                <td>{%= (data[i].voucher_type) %}</td>
+                <td> {%= (data[i].against_voucher) %} </td>
+                <td> {%= (data[i].ref_number) %} </td>
+                <td class="text-right">
+                    {%= format_number(data[i].debit, null, 2) %}
+                </td>
+                <td class="text-right">
+                    {%= format_number(data[i].credit, null, 2) %}</td>
+                <td class="text-right">
+                    {%= format_number(data[i].balance, null, 2) %}</td>
+
+                {% } %}
+
+                </tr>
+                {% } %}
+
+
+                <tr style="" class="m-0 p-0">
+                    <td colspan="4" class="m-0 p-0">
+
+                    </td>
+
+
+                    <td colspan="4" class="m-0 p-0">
+                        <table width="100%" class="table table-sm small m-0 p-0" cellspacing="0" cellpadding="0"
+                            style="border:none !important ; font-weight:900">
+                            <tr>
+                                {% if(filters.party_type == "Customer") { %}
+                                <td class="bg-light"> Sales </td>
+                                {% } else if(filters.party_type == "Supplier") { %}
+                                <td class="bg-light"> Purchase </td>
+                                {% } %}
+
+                                <td class="text-right">
+                                    {%= format_number(data[data.length - 1].debit, null, 2) %}
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                {% if(filters.party_type == "Customer") { %}
+                                <td class="bg-light"> Sales Return</td>
+                                {% } else if(filters.party_type == "Supplier") { %}
+                                <td class="bg-light"> Purchase Return</td>
+                                {% } %}
+                                <td class="text-right">
+                                    {%= format_number(data[data.length - 1].sales_to_return, null, 2) %}
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-light  "> Payment </td>
+                                <td class="text-right">
+                                    {%= format_number(data[data.length - 1].credit, null, 2) %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-light "> <b> Balance Amount </b> </td>
+                                <td class="text-right"> <b>
+                                        {%= format_number(data[data.length - 1].balance, null, 2) %}
+                                    </b>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table class="small">
+                            <thead>
+                                <tr>
+                                    <th colspan="6"> PD cheques Summary</th>
+                                </tr>
+                                <tr>
+                                    <th> Date </th>
+                                    <th> Voucher No </th>
+                                    <th> CHQ Date </th>
+                                    <th colspan="2"> CHQ No </th>
+                                    <!-- <th> Allocation </th> -->
+                                    <th> Cheque Amount </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    {% for(var i=0, l= (data[data.length - 1].cheque_list).length; i<l; i++) { %} <tr>
+
+                                        <td>{%= ( data[data.length - 1].cheque_list[i]["pd_posting_date"] ) %} </td>
+                                        <td>{%= ( data[data.length - 1].cheque_list[i]["pd_cheque_name"] ) %} </td>
+                                        <td>{%= ( data[data.length - 1].cheque_list[i]["pd_reference_date"] ) %} </td>
+                                        <td colspan="2">{%= ( data[data.length - 1].cheque_list[i]["pd_reference_no"] )
+                                            %} </td>
+                                        <!-- <td>{%= ( data[data.length - 1].cheque_list[i]["p_paid_amount"] ) %} </td> -->
+                                        <td class="text-right">{%= format_number( data[data.length
+                                            -1].cheque_list[i]["p_paid_amount"]) %} </td>
+                                        {% } %}
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="2">{%= ( data[data.length - 1].totals_pds["pd_reference_no"] ) %} </td>
+                                    <td class="text-right">{%= format_number( data[data.length -
+                                        1].totals_pds["p_paid_amount"] ) %} </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="2">{%= ( data[data.length - 1].totals_balance["pd_reference_no"] ) %}
+                                    </td>
+                                    <td class="text-right">{%= format_number( data[data.length -
+                                        1].totals_balance["p_paid_amount"] ) %} </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="2">{%= ( data[data.length - 1].totals_after_pd["pd_reference_no"] ) %}
+                                    </td>
+                                    <td class="text-right">{%= format_number( data[data.length -
+                                        1].totals_after_pd["p_paid_amount"] ) %} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+
+                    <td colspan="4">
+                        <table width="" class="small m-0 p-0" cellspacing="0" cellpadding="0"
+                            style="border :none !important ; font-weight:900">
+                            <tr>
+                                <td colspan="5" class="bg-light"> Ageing Summary </td>
+                            </tr>
+                            <tr>
+                                <td> 30 </td>
+                                <td> 60 </td>
+                                <td> 90 </td>
+                                <td> 120 </td>
+                                <td> Above </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+
+                                    {%= format_number(data[data.length - 1].ageing_data["30"] , null , 2) %}
+
+                                </td>
+                                <td>
+                                    {%= format_number(data[data.length - 1].ageing_data["60"] , null , 2) %}
+
+                                </td>
+                                <td>
+
+                                    {%= format_number(data[data.length - 1].ageing_data["90"] , null , 2) %}
+
+                                </td>
+                                <td>
+                                    {%= format_number(data[data.length - 1].ageing_data["120"] , null , 2) %}
+
+
+                                </td>
+                                <td>
+                                    {%= format_number(data[data.length - 1].ageing_data["above"] , null , 2) %}
+
+
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {%= frappe.query_report.get_filters_html_for_print() %}

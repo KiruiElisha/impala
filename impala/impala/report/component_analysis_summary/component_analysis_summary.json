@@ -1,0 +1,66 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-05-29 10:50:04.598953",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "letterhead": null,
+ "modified": "2024-12-13 12:40:21.014617",
+ "modified_by": "Administrator",
+ "module": "impala",
+ "name": "Component Analysis Summary",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Sales Order",
+ "report_name": "Component Analysis Summary",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "Maintenance User"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Blogger"
+  },
+  {
+   "role": "Archi Sales Manager"
+  },
+  {
+   "role": "Archi Sales Rep"
+  },
+  {
+   "role": "AUTO SALES ACCESS"
+  },
+  {
+   "role": "Manager"
+  },
+  {
+   "role": "Production Manager"
+  },
+  {
+   "role": "DOCUMENT DELETE USER"
+  },
+  {
+   "role": "CRM role"
+  },
+  {
+   "role": "Dispatch inchage"
+  }
+ ]
+}

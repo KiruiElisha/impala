@@ -1,0 +1,124 @@
+<p class=""><b>APPENDIX 1A</b></p>
+<center>
+<div style="font-weight: bold;"> 
+    <p>KENYA REVENUE AUTHORITY </p>
+    <p>INCOME TAX DEPARTMENT </p>
+    <p>TAX DEDUCTION CARD YEAR {{ filters.year  }}</p> 
+</div>
+</center>
+<table   style="width:100%;">
+    <tr>
+        <td style="width:40%;" >
+         <i> Employer's Name:</i>
+         <i class="fa fa-map-marker" style="color:{{filters.color}};"></i>{{ filters.company }}<br>
+         <i >Emplooyee's Main Name</i>   
+         <i class="fa fa-map-marker" style="color:{{filters.color}};"></i>{{ filters.employee_name }} <br>       
+          <i>Employee's Other Names:</i>
+          <i class="fa fa-map-marker" style="color:{{filters.color}};"></i>{{filters.employee}}
+        </td>
+        <td style="width:40%; text-right:center; font-weight:None;text-align: right;">
+         <p>
+               <i> Employer's PIN:</i>
+               <i class="fa fa-map-marker" style="color:{{filters.color}};"></i>{{ filters.employer_pin }}<br>
+               <i >Emplooyee's PIN:</i>   
+               <i class="fa fa-map-marker" style="color:{{filters.color}};"></i>{{ filters.employee_pin}} <br>       
+               <i>Employee's Payroll:</i>
+               <i class="fa fa-map-marker" style="color:{{filters.color}};"></i>{{ filters.employee_payroll}}
+            </p>
+        </td>
+        <td style="width:20%; text-align:right;">
+            <div class="text-right" style="width:80px">
+                </div>
+        </td>
+    </tr>
+</table>
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th style="width: ">Month  (Ksh)</th>
+        <th style="width: ">Basic Salary (Ksh)</th>
+        <th style="width: ">Benefits Non-Cash (Ksh)</th>
+        <th style="width: ">Value of Quarters (Ksh)</th>
+        <th style="width: ">Total Gross Pay (Ksh)</th>
+        <th style="width: ">Defined Contribution Scheme (Ksh)</th>
+        <th style="width: ">Retirement Contribution Scheme (Ksh)</th> <!-- Added missing th -->
+        <th style="width: ">Owner-Occupied Interest (Ksh)</th>
+        <th style="width: ">Retirement Contribution & Owner Occupied Interest (Ksh)</th>
+        <th style="width: ">Chargeable Pay (Ksh)</th>
+        <th style="width: ">Tax Charged (Ksh)</th> 
+        <th style="width: ">Personal Relief (Ksh)</th>
+        <th style="width: ">Insurance Relief (Ksh)</th>
+        <th style="width: ">PAYE Tax (J-K) (Ksh)</th>   
+    </tr>
+</thead>
+
+<tbody>
+  {% for row in data %}
+  <tr>
+     <td>{{ row['month'] }}</td>         
+     <td>{{ row['basic_salary'] }}</td>
+     <td>{{ row['benefits_non_cash'] }}</td>
+     <td>{{ row['value_of_quarters']}}</td>
+     <td>{{ row['total_gross_pay'] }}</td>
+     <td>{{ row['defined_contribution_scheme'] }}</td>
+     <td>{{ row['retirement_contribution_scheme'] }}</td> <!-- Added missing column -->
+     <td>{{ row['owner_occupied_interest'] }}</td>
+     <td>{{ row['retirement_contribution_and_interest'] }}</td>
+     <td>{{ row['chargeable_pay'] }}</td>
+     <td>{{ row['tax_charged'] }}</td>
+     <td>{{ row['personal_relief'] }}</td>
+     <td>{{ row['insurance_relief'] }}</td>
+     <td>{{ row['paye_tax'] }}</td> <!-- Corrected key -->
+  </tr>
+  {% endfor %}
+</tbody>
+ 
+</table>
+<div style="font-size: 10px;">
+    <table style="font-size: 8px;">
+        <tr>
+            <td>
+  <p style="font-weight: bold;">To be completed by Employer at end of year</p>
+  <p><strong>TOTAL CHARGEABLE PAY (COL.H) Kshs. </strong></p>
+    </td>
+    <td>
+  <p style = "text-align: left; ">(b) Attach</p>
+  <ol>
+    <li>(i) Photostat copy of interest certificate and statement of account from the financial institution</li>
+    <li>(ii) The DECLARATION duly signed by the employee to form P9A</li>
+  </ol>
+
+  <p><strong>NAMES OF FINANCIAL INSTITUTION ADVANCING MORTGAGE LOAN</strong></p>
+</td>
+</tr>
+<tr>
+<td>
+  <p><strong>IMPORTANT</strong></p>
+  <ol>
+    <li>
+      Use P9A
+      <ul>
+        <li>(a) For all liable employees and where director/employee received benefits in addition to cash emoluments.</li>
+        <li>(b) Where an employee is eligible for a deduction on owner-occupied interest.</li>
+      </ul>
+    </li>
+    <li>Deductible interest in respect of any month must not exceed Kshs. 12500/=, except for December where the amount shall be Kshs. 8337/=</li>
+  </ol>
+  <p>(See back of this card for further information required by the Department) <br>P.9A</p>
+</td>
+<td>
+  <p><strong>L.R NO OF OWNER OCCUPIED PROPERTY:</strong></p>
+  <p><strong>DATE OF OCCUPATION OF HOUSE:</strong></p>
+</td>
+</tr>
+</div>
+</table>
+
+<p class="text-right text-muted">Printed On <span id="datetime"></span></p>
+
+<script>
+    var currentDatetime = new Date().toLocaleString();
+    document.getElementById("datetime").textContent = currentDatetime;
+</script>

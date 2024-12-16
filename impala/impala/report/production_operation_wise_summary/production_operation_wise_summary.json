@@ -1,0 +1,33 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2022-10-24 16:45:31.478724",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "modified": "2022-10-24 16:45:31.478724",
+ "modified_by": "Administrator",
+ "module": "Impala",
+ "name": "Production Operation Wise Summary",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Job Card",
+ "report_name": "Production Operation Wise Summary",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Manufacturing User"
+  },
+  {
+   "role": "Manufacturing Manager"
+  }
+ ]
+}

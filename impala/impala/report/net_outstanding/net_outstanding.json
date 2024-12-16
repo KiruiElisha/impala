@@ -1,0 +1,57 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2024-10-02 15:44:36.329490",
+ "disable_prepared_report": 1,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "modified": "2024-10-24 12:35:16.627103",
+ "modified_by": "Administrator",
+ "module": "Impala",
+ "name": "Net Outstanding",
+ "owner": "Administrator",
+ "prepared_report": 1,
+ "ref_doctype": "Sales Invoice",
+ "report_name": "Net Outstanding",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Employee Self Service"
+  },
+  {
+   "role": "POS"
+  },
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "AUTO SALES ACCESS"
+  },
+  {
+   "role": "Archi Sales Manager"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "DOCUMENT DELETE USER"
+  },
+  {
+   "role": "Dispatch inchage"
+  },
+  {
+   "role": "External Auditor"
+  }
+ ]
+}

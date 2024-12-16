@@ -1,0 +1,45 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2022-05-28 19:04:08.122459",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "modified": "2022-05-28 19:04:08.122459",
+ "modified_by": "Administrator",
+ "module": "Impala",
+ "name": "Customer Credit Balance-Impala",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Customer",
+ "report_name": "Customer Credit Balance-Impala",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "Sales Master Manager"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+<style>
+    .qr-code-container {
+        text-align: center;
+        padding: 10px;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 120px;
+        margin: 0 auto;
+    }
+    .qr-code-image {
+        border: 3px solid white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+<table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 11px; border: 1px solid black;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black; padding: 5px; text-align: left;">Item Name</th>
+            <th style="border: 1px solid black; padding: 5px; text-align: center;">Qty.</th>
+            <th style="border: 1px solid black; padding: 5px; text-align: right;">Price {{ doc.currency }}</th>
+            <th style="border: 1px solid black; padding: 5px; text-align: right;">Discount</th>
+            <th style="border: 1px solid black; padding: 5px; text-align: right;">Total {{ doc.currency }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in doc.items %}
+        <tr>
+            <td style="border: 1px solid black; padding: 5px;">{{ item.item_name }}</td>
+            <td style="border: 1px solid black; padding: 5px; text-align: center;">{{ item.qty }}</td>
+            <td style="border: 1px solid black; padding: 5px; text-align: right;">{{ item.rate }}</td>
+            <td style="border: 1px solid black; padding: 5px; text-align: right;">{{ item.discount_percentage or 0 }}%</td>
+            <td style="border: 1px solid black; padding: 5px; text-align: right;">{{ item.amount }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" rowspan="3" style="vertical-align: middle;">
+                <div class="qr-code-container">
+                    <img id="qrcode" 
+                        class="qr-code-image"
+                        src="https://api.qrserver.com/v1/create-qr-code/?data={{ doc.cu_link | urlencode }}&amp;size=100x100" 
+                        alt="TIMS QR Code" 
+                        title="{{ doc.cu_link }}" />
+                </div>
+            </td>
+            <td colspan="" style="border: 1px solid black; padding: 5px; text-align: right;">Subtotal</td>
+            <td style="border: 1px solid black; padding: 5px; text-align: right;">{{ doc.currency }} {{ doc.net_total }}</td>
+        </tr>
+        <tr>
+            <td colspan="" style="border: 1px solid black; padding: 5px; text-align: right;">Tax</td>
+            <td style="border: 1px solid black; padding: 5px; text-align: right;">{{ doc.currency }} {{ doc.total_taxes_and_charges }}</td>
+        </tr>
+        <tr>
+            <td colspan="" style="border: 1px solid black; padding: 5px; text-align: right;">Total</td>
+            <td style="border: 1px solid black; padding: 5px; text-align: right;">{{ doc.currency }} {{ doc.grand_total }}</td>
+        </tr>
+    </tfoot>
+</table> 

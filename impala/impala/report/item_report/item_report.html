@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tax Deduction Card - ERPNext Frappe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Item Code</th>
+                <th>Item Name</th>
+                <th>UOM</th>
+                <th>Price Excl</th>
+                <th>Price Incl</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{row['image']}}</td>
+                <td>{{ row['name'] }}</td>
+                <td>{{ row['item_name'] }}</td>
+                <td>{{ row['uom'] }}</td>
+                <td>{{ row['price_excl'] }}</td>
+                <td>{{ row['price_incl'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+
+    <p class="text-right text-muted"><strong style="color: dark">Price List as On <span id="datetime"></span></strong></p>
+
+
+    <script>
+        var currentDatetime = new Date().toUTCString();
+        document.getElementById("datetime").textContent = currentDatetime;
+    </script>
+</body>
+</html>

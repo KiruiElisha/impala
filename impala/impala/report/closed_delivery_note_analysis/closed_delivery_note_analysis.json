@@ -1,0 +1,34 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-04-25 10:35:10.804498",
+ "director_report": 0,
+ "disable_prepared_report": 1,
+ "disabled": 1,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "modified": "2024-05-20 08:08:48.540821",
+ "modified_by": "Administrator",
+ "module": "Impala",
+ "name": "Closed Delivery Note Analysis",
+ "owner": "Administrator",
+ "prepared_report": 1,
+ "ref_doctype": "Sales Invoice",
+ "report_name": "Closed Delivery Note Analysis",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Archi Sales Manager"
+  },
+  {
+   "role": "Sales Manager"
+  }
+ ]
+}

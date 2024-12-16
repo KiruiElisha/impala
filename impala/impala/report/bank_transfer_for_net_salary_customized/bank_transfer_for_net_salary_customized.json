@@ -1,0 +1,33 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-01-24 14:40:01.835083",
+ "disabled": 1,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "letterhead": null,
+ "modified": "2024-12-16 09:46:57.554840",
+ "modified_by": "Administrator",
+ "module": "impala",
+ "name": "Bank Transfer for NET SALARY customized",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Payroll Monthly Input",
+ "report_name": "Bank Transfer for NET SALARY customized",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "HR Manager"
+  },
+  {
+   "role": "HR User"
+  }
+ ]
+}

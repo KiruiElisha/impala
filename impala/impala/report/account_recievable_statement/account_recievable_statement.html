@@ -1,0 +1,125 @@
+<!-- <p class="text-muted" style="text-align:left;float:left;">Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_today()) %} </p> -->
+<div style="margin-top:20px">
+{%= data[data.length - 1]['header'] %}</div>
+<table class="table table-bordered" style="width: 100%; margin-bottom: 0%;">
+	<th class="text-center">Statement Of Account</th>
+</table>
+<table  style="width: 100%;" class="table table-bordered table-condensed">
+	<tbody>
+		<tr style="width: 100%">
+			<td style="width: 50%">
+				<h3>{%= data[data.length-1]['customer_name'] %}</h3>
+				{%= data[data.length-1].address %}
+			</td>
+			<td style="width: 50%; text-align: right">
+                <b style="font-size:small">                Currency: {%= frappe.defaults.get_default('Currency') %}
+				<br>
+				Amount Due: {%= format_currency(data[data.length-1]['bal']) %}
+				<br>
+				Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_today()) %}</b>
+                        </td>
+		</tr>
+	</tbody>
+</table>
+<hr>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th style="width: 12%">{%= __("Date") %}</th>
+			<th style="width: 15%">{%= __("No") %}</th>
+			<th style="width: 10%">{%= __("Description") %}</th>
+			<th style="width: 10%">{%= __("Allocation") %}</th>
+			<th style="width: 15%">{%= __("Debit") %}</th>
+			<th style="width: 15%">{%= __("Credit") %}</th>
+			<th style="width: 18%">{%= __("Balance") %}</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for(var i=0, l=data.length; i<l && !data[i].id; i++) { %}
+			<tr>
+			{% if(data[i].date) { %}
+				<td>{%= frappe.datetime.str_to_user(data[i].date) %}</td>
+				<td>{%= data[i].docno %}</td>
+				<td>{%= data[i].doctype %}</td>
+				<td>{%= data[i].alloc %}</td>
+				<td class="text-right">{%= format_currency(data[i].debit, null) %}</td>
+				<td class="text-right">{%= format_currency(data[i].credit) %}</td>
+				<td class="text-right">{%= format_currency(data[i].balance) %}</td>
+			{% } %}
+		{% } %}
+	</tbody>
+</table>
+
+
+<table width="100%">
+	<tr width="100%">
+		<td width="50%">
+<table class="table-bordered" style="width: 100%;">
+	<th colspan=5>Ageing Summary</th>
+		<tr>
+			{% if(data[data.length-1]['age1']){ %}
+				<th class="text-center">{%= data[data.length-1]['age1']%}</th>
+			{% } %}
+			{% if(data[data.length-1]['age2']){ %}
+				<th class="text-center">{%= data[data.length-1]['age2']%}</th>
+			{% } %}
+			{% if(data[data.length-1]['age3']){ %}
+				<th class="text-center">{%= data[data.length-1]['age3']%}</th>
+			{% } %}
+			{% if(data[data.length-1]['age4']){ %}
+				<th class="text-center">{%= data[data.length-1]['age4']%}</th>
+			{% } %}
+			{% if(data[data.length-1]['age5']){ %}
+				<th class="text-center">{%= data[data.length-1]['age5']%}</th>
+			{% } %}
+		</tr>
+		<tbody>
+			<tr>
+				{% if(data[data.length-1]['age1']){ %}
+					<td class="text-right">
+						{%= format_currency(data[data.length-1][data[data.length-1]['age1']]) %}
+					</td>
+				{% } %}
+				{% if(data[data.length-1]['age2']){ %}
+					<td class="text-right">
+						{%= format_currency(data[data.length-1][data[data.length-1]['age2']]) %}
+					</td>
+				{% } %}
+				{% if(data[data.length-1]['age3']){ %}
+					<td class="text-right">
+						{%= format_currency(data[data.length-1][data[data.length-1]['age3']]) %}
+					</td>
+				{% } %}
+				{% if(data[data.length-1]['age4']){ %}
+					<td class="text-right">
+						{%= format_currency(data[data.length-1][data[data.length-1]['age4']]) %}
+					</td>
+				{% } %}
+				{% if(data[data.length-1]['age5']){ %}
+					<td class="text-right">
+						{%= format_currency(data[data.length-1][data[data.length-1]['age5']]) %}
+					</td>
+				{% } %}
+			</tr>
+		</tbody>
+	</table>
+	</td>
+	<td  width="50%">
+<table class="table-bordered" style="width: 100%;">
+	<tr>
+		<th>{%= __("Sales") %}</th>
+		<td class="text-right">{%= format_currency(data[data.length-1]['sales']) %}</td>
+	</tr>
+	<tr>
+		<th>{%= __("Sales Return") %}</th>
+		<td class="text-right">{%= format_currency(data[data.length-1]['sales_return']) %}</td>
+	</tr>
+	<tr>
+		<th>{%= __("Payment") %}</th>
+		<td class="text-right">{%= format_currency(data[data.length-1]['payment']) %}</td>
+	</tr>
+</table>
+</td>
+</tr>
+</table>
+	{%= frappe.query_report.get_filters_html_for_print() %}

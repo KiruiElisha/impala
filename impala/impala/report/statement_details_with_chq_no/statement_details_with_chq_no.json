@@ -1,0 +1,36 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2023-03-08 16:46:09.288760",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "letterhead": null,
+ "modified": "2024-12-13 09:50:17.621833",
+ "modified_by": "Administrator",
+ "module": "impala",
+ "name": "Statement details with chq no",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "GL Entry",
+ "report_name": "Statement details with chq no",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Auditor"
+  },
+  {
+   "role": "Sales User"
+  }
+ ]
+}

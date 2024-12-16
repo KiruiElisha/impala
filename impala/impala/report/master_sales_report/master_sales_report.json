@@ -1,0 +1,48 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2023-03-20 12:19:36.195345",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "No",
+ "letter_head": "Default Letter Head",
+ "modified": "2023-03-20 12:53:59.354253",
+ "modified_by": "Administrator",
+ "module": "Impala",
+ "name": "Master Sales Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Sales Invoice",
+ "report_name": "Master Sales Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Employee Self Service"
+  },
+  {
+   "role": "POS"
+  },
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "AUTO SALES ACCESS"
+  },
+  {
+   "role": "Archi Sales Manager"
+  },
+  {
+   "role": "Sales Manager"
+  }
+ ]
+}

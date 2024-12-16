@@ -1,0 +1,31 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2023-12-12 10:12:20.807297",
+ "director_report": 0,
+ "disable_prepared_report": 1,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "modified": "2024-03-15 16:58:11.150441",
+ "modified_by": "Administrator",
+ "module": "Impala",
+ "name": "Leave Summary Report",
+ "owner": "Administrator",
+ "prepared_report": 1,
+ "ref_doctype": "Employee",
+ "report_name": "Leave Summary Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "HR User"
+  },
+  {
+   "role": "HR Manager"
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2023-12-01 09:10:39.660635",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "letterhead": null,
+ "modified": "2024-12-13 12:46:05.197599",
+ "modified_by": "Administrator",
+ "module": "impala",
+ "name": "Company Sacco Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Salary Slip",
+ "report_name": "Company Sacco Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "HR User"
+  },
+  {
+   "role": "Employee"
+  },
+  {
+   "role": "HR Manager"
+  },
+  {
+   "role": "Employee Self Service"
+  },
+  {
+   "role": "System Manager"
+  }
+ ]
+}

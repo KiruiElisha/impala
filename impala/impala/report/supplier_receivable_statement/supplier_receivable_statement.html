@@ -1,0 +1,240 @@
+<!-- <p class="text-muted" style="text-align:left;float:left;">Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_today()) %} </p> -->
+<div style="margin-top:20px">
+
+
+
+
+    <table class="table table-sm small "
+        style="width: 100%; padding: 0px !important; font-weight:900;  padding:0px !important">
+        <tr>
+            <td style="width: 60%" class="text-left">
+
+
+                <div> {%= __("Customer ") %} :
+
+
+                    {%=  filters.party_name %}
+
+
+
+
+
+                </div>
+
+
+                <div> {%= __("Email ID ") %} :
+
+                    {%= (data[data.length - 1].customer_personal_detial["email_id"]) %}
+                </div>
+
+
+                <div> {%= __("Phone ") %} :
+                    {%= (data[data.length - 1].customer_personal_detial["phone"]) %}
+
+                </div>
+
+            </td>
+            <td style="width: 40%" class="text-right">
+
+                <div> {%= __("Currency ") %} :
+                    {%= (data[data.length - 1].customer_personal_detial["currency"]) %}
+
+                </div>
+                <div> {%= __("Due Balance ") %} :
+
+                    {%= (data[data.length - 1].customer_personal_detial["due_balance"]) %}
+
+                </div>
+                <div>
+
+
+                    {%= frappe.datetime.str_to_user(filters.from_date) %}--
+                    {%= frappe.datetime.str_to_user(filters.to_date) %}
+
+                </div>
+
+
+
+            </td>
+
+        </tr>
+
+    </table>
+
+
+    <table class=" table table-sm small m-0 p-0  " width="100%" style="padding: 0px !important; margin:0px !important"
+        cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th style="width:12% !important">{%= __("Date") %}</th>
+                <th style="width:10% !important">{%= __("No") %}</th>
+                <th style="width:14% !important">{%= __("Description") %}</th>
+                <th style="" class="small">{%= __("Allocation") %}</th>
+                <th style="width:14% !important" class="text-right small ">{%= __("Debit") %}</th>
+                <th style="width:14% !important" class="text-right small " >{%= __("Credit") %}</th>
+                <th style="width:14% !important" class="text-right small " >{%= __("Balance") %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for(var i=0, l=data.length; i<l; i++) { %} <tr>
+                {% if(data[i]) { %}
+                <td>
+                {%= frappe.datetime.str_to_user(data[i].posting_date) %}
+
+
+
+            </td>
+                <td>{%= (data[i].voucher_no) %}</td>
+
+                <td>{%= (data[i].voucher_type) %}</td>
+                <td> {%= (data[i].against_voucher) %}  </td>
+                <td class="text-right" >
+                    {%= format_number(data[i].debit, null, 2) %}
+                </td>
+                <td class="text-right" >
+                {%= format_number(data[i].credit, null, 2) %}</td>
+                <td class="text-right">
+                    {%= format_number(data[i].balance, null, 2) %}</td>
+
+                {% } %}
+
+                </tr>
+                {% } %}
+
+
+                <tr style="" class="m-0 p-0">
+                    <td colspan="4" class="m-0 p-0">
+                        <table width="100%" class="table table-sm small m-0 p-0" cellspacing="0" cellpadding="0"
+                            style="border :none !important ; font-weight:900">
+                            <tr>
+                                <td colspan="5" class="bg-light"> Ageing Summary </td>
+                            </tr>
+                            <tr>
+                                <td> 30 </td>
+                                <td> 60 </td>
+                                <td> 90 </td>
+                                <td> 120 </td>
+                                <td> Above </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+
+                                    {%= format_number(data[data.length - 1].ageing_data["30"] , null , 2) %}
+
+                                </td>
+                                <td>
+                                    {%= format_number(data[data.length - 1].ageing_data["60"] , null , 2) %}
+
+                                </td>
+                                <td>
+
+                                    {%= format_number(data[data.length - 1].ageing_data["90"] , null , 2) %}
+
+                                </td>
+                                <td>
+                                    {%= format_number(data[data.length - 1].ageing_data["120"] , null , 2) %}
+
+
+                                </td>
+                                <td>
+                                    {%= format_number(data[data.length - 1].ageing_data["above"] , null , 2) %}
+
+
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+
+
+                    <td colspan="3" class="m-0 p-0">
+                        <table width="100%" class="table table-sm small m-0 p-0" cellspacing="0" cellpadding="0"
+                            style="border:none !important ; font-weight:900">
+                            <tr>
+                                <td class="bg-light"> Sales </td>
+
+                                <td class="text-right">
+                                    {%= format_number(data[data.length - 1].debit, null, 2) %}
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="bg-light  "> Sales Return </td>
+                                <td class="text-right">
+                                    {%= format_number(data[data.length - 1].sales_to_return, null, 2) %}
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-light "> Payment </td>
+                                <td class="text-right">
+                                    {%= format_number(data[data.length - 1].credit, null, 2) %}
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+
+
+                </tr>
+        </tbody>
+    </table>
+
+
+    <table class="small" >
+        <thead>
+            <tr>
+                <th colspan="6" > PD cheques Summary</th>
+            </tr>
+            <tr>
+                <th> Date </th>
+                <th> Voucher No </th>
+                <th> CHQ Date </th>
+                <th> CHQ No </th>
+                <th> Allocation </th>
+                <th> Cheque Amount </th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+
+            {% for(var i=0, l= data[data.length - 1].cheque_list.length; i<l; i++) { %} 
+                <tr>
+
+                <td>{%= ( data[data.length - 1].cheque_list[i]["posting_date"] ) %} </td>
+                <td>{%= ( data[data.length - 1].cheque_list[i]["payment_entry"] ) %} </td>
+                <td>{%= ( data[data.length - 1].cheque_list[i]["cheque_date"] ) %} </td>
+                <td>{%= ( data[data.length - 1].cheque_list[i]["cheque_no"] ) %} </td>
+                <td>{%= ( data[data.length - 1].cheque_list[i]["allocation"] ) %} </td>
+
+                <td class="text-right" >{%= format_number( data[data.length - 1].cheque_list[i]["amount"] , null, 2) %} </td>
+
+
+                </tr>
+                {% } %}
+
+
+
+
+
+        </tbody>
+
+
+    </table>
+
+
+
+
+
+
+    <div>{%= (data[data.length - 1].headers) %} </div>
+
+
+
+
+
+    {%= frappe.query_report.get_filters_html_for_print() %}

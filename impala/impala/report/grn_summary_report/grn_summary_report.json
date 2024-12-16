@@ -1,0 +1,46 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2023-11-02 12:50:18.767563",
+ "director_report": 0,
+ "disable_prepared_report": 0,
+ "disabled": 1,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "modified": "2023-11-02 12:50:31.092716",
+ "modified_by": "Administrator",
+ "module": "Impala",
+ "name": "GRN Summary Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Purchase Receipt",
+ "report_name": "GRN Summary Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Archi Procurement Rep"
+  },
+  {
+   "role": "Archi Procurement Manager"
+  },
+  {
+   "role": "AUTO SALES ACCESS"
+  }
+ ]
+}

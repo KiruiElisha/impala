@@ -1,0 +1,69 @@
+<h2 class=""><b>P10 Report</b></h2>
+
+<h3 style="width: "> {{ filters.company  }}</h3>
+<br>
+<hr>
+<table class="table table-bordered" style="color:black; border: 1px solid black;">
+    <thead>
+        <tr>
+            <th style="width: ">Employee PIN</th>
+            <th style="width: ">Employee Name</th>
+            <th style="width: ">Residential Status</th>
+            <th style="width: ">Type of Employee</th>
+            <th style="width: ">Basic Salary</th>
+            <th style="width: ">House Allowance</th>  
+            <th style="width: ">Transport Allowance</th>
+            <th style="width: ">Leave Pay</th>
+            <th style="width: ">Overtime Allowance</th>
+            <th style="width: ">Director Fees</th>
+            <th style="width: ">Lump Sum Payment if any</th>
+            <th style="width: ">Other Allowance</th>
+            <th style="width: ">Value Of Car Benefit</th>                      
+            <th style="width: ">Other Non Cash Benefits</th>             
+            <th style="width: ">Global Income</th>
+            <th style="width: ">Type Of Housing</th>
+            <th style="width: ">Actual Contribution</th> 
+            <th style="width: ">Mortgage interest</th>
+            <th style="width: ">Deposit on Home Ownership</th>
+            <th style="width: ">Monthly Personal Relief</th>  
+            <th style="width: ">Amount of insurance relief</th>  
+            <th style="width: ">Paye Tax</th> 
+        </tr>
+    </thead>
+    <tbody>
+      {% for row in data %}
+      <tr>
+         <td>{{ row['employee_pin'] }}</td>         
+         <td>{{ row['employee_name'] }}</td>
+         <td>{{ row['residential_status'] }}</td>
+         <td>{{ row['type_of_employee']}}</td>
+         <td>{{ row['basic'] }}</td>
+         <td>{{ row['house_allowance'] }}</td>
+         <td>{{ row['trasnport_allowance'] }}</td>
+         <td>{{ row['leave_pay']  }}</td>
+         <td>{{ row['overtime_allowance'] }}</td>
+         <td>{{ row['director_fees'] }}</td>
+         <td>{{ row['lump_sum_payment_if_any'] }}</td>
+         <td>{{ row["other_allowance"] }}</td>
+         <td>{{ row['value_of_car_benefits']   }}</td>
+         <td>{{ row['non_cash_benefit']  }}</td>
+         <td>{{ row['global_income']  }}</td>
+         <td>{{ row['type_of_housing'] }}</td>         
+         <td>{{ row['actual_contribution'] }}</td>
+         <td>{{ row['mortgage_relief'] }}</td>
+         <td>{{ row['deposit_on_home'] }}</td>
+         <td>{{ row['monthly_personal_relief'] }}</td>
+         <td>{{ row['amount_of_insurance_relief']}}</td>
+         <td>{{ row['paye_tax'] }}</td>
+         {% endfor %}
+      </tr>
+    </tbody>  
+</table>
+
+
+<p class="text-right text-muted">Printed On <span id="datetime"></span></p>
+
+<script>
+    var currentDatetime = new Date().toLocaleString();
+    document.getElementById("datetime").textContent = currentDatetime;
+</script>

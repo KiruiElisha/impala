@@ -1,0 +1,36 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2022-05-27 11:38:17.434076",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Default Letter Head",
+ "modified": "2022-05-27 11:38:27.104751",
+ "modified_by": "Administrator",
+ "module": "Impala",
+ "name": "Purchase Order Analysis-Impala",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Purchase Order",
+ "report_name": "Purchase Order Analysis-Impala",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Supplier"
+  }
+ ]
+}

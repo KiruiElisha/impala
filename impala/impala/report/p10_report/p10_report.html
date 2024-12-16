@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tax Deduction Card - ERPNext Frappe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        
+        h1{
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>KENYA REVENUE AUTHORITY</h1>
+<h2>INCOME TAX DEPARTMENT</h2>
+<h2>P.A.Y.E SUPPORTING LIST FOR  END OF YEAR CERTIFICATE {{filters.year}}</h2>
+<div style="display: flex; justify-content: space-between;">
+<h2>EMPLOYER'S NAME: {{filters.company}}</h2>
+<h2>EMPLOYER'S PIN: {{filters.employer_pin}}</h2>
+</div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>EMPLOYEE`S PIN</th>
+                <th>EMPLOYEE`S NAME</th>
+                <th>TOTAL EMOLUMENTS</th>
+                <th>TOTAL DEDUCTED</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{row['employee_pin']}}</td>
+                <td>{{ row['employee_name'] }}</td>
+                <td>{{ row['deductions'] }}</td>
+                <td>{{ row['earnings'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+
+  
+</body>
+</html>
